@@ -1,14 +1,19 @@
 import React from "react";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
+import UploadScreen from "./screens/UploadScreen.jsx";
+import FileEditingScreen from "./screens/FileEditingScreen.jsx";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <Provider store={store}>
-      <div>
-        <h1>💖 Hello World!</h1>
-        <p>Welcome to your Electron application.</p>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<UploadScreen />} />
+          <Route path="/fileediting" element={<FileEditingScreen />} />
+        </Routes>
+      </Router>
     </Provider>
   );
 }

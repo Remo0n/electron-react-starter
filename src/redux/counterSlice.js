@@ -1,14 +1,18 @@
 // redux/counterSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-const counterSlice = createSlice({
+const initialState = {
+  lemmaBlocks: [],
+};
+export const counterSlice = createSlice({
   name: "counter",
-  initialState: 0,
+  initialState,
   reducers: {
-    increment: (state) => state + 1,
-    decrement: (state) => state - 1,
+    setLemmaBlocks: (state, action) => {
+      state.lemmaBlocks = action.payload;
+    },
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { setLemmaBlocks } = counterSlice.actions;
 export default counterSlice.reducer;
